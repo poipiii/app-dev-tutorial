@@ -23,6 +23,8 @@ class Empolyee:
         return self.__department 
     def get_title(self,title):
         return self.__title 
+
+        
     def addemployee(self):
         self.__class__.Empolyeedict[self.__id]={'name':self.__name,'department':self.__department,"title":self.__title}
     def get_empolyeefromdict(self,uuid):
@@ -70,3 +72,5 @@ while True:
         employ.delemployee(delid)
     elif command == 5:
         break
+
+    
