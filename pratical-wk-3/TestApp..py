@@ -33,8 +33,8 @@ class Student(Person):
         return self.__exam_mark
     def computefinalmark(self):
         return (self.__exam_mark + self.__test_mark)/2
-    def __str__(self):
-        return self.get_name() + ', admin no: ' + self.get_admin_no() + " final mark is: " + str(self.computefinalmark())
+    #def __str__(self):
+    #    return self.get_name() + ', admin no: ' + self.get_admin_no() + " final mark is: " + str(self.computefinalmark())
 
     
 class Lecturer(Person):
@@ -52,8 +52,8 @@ class Lecturer(Person):
         return self.__total_TeachingHour
     def computesalary(self):
         return self.__total_TeachingHour * 90
-    def __str__(self):
-        return self.get_name() + ', staff id: ' + self.get_staff_id() + " earns: " + str(self.computesalary())
+    #def __str__(self):
+    #    return self.get_name() + ', staff id: ' + self.get_staff_id() + " earns: " + str(self.computesalary())
 
 
 lec_name = input('enter lecture name')
@@ -75,7 +75,7 @@ print(new_student)
 
 '''
     
-
+'''
 class Person:
     def __init__(self,name,nric):
         self.__name = name
@@ -158,3 +158,56 @@ new_student.set_test_mark(test_mark)
 new_student.set_exam_mark(exam_mark)
 print(staff)
 print(new_student)
+'''
+
+#class Fish:
+#    def __init__(self, first_name, last_name="Fish"):
+#        self.first_name = first_name
+#        self.last_name = last_name
+#    def swim(self):
+#        print("The fish is swimming.")
+#    def swim_backwards(self):
+#        print("The fish can swim backwards.")
+#
+##clown fish will inherit all the methods
+#
+#class ClownFish(Fish):
+#    def lives_in_sea(self):
+#        print("The clown fish lives in the sea")
+#
+
+
+
+class Player:
+    def __init__(self,name):
+        self.__name = name
+    def set_name(self,name):
+        self.__name = name
+    def get_name(self):
+        return self.__name
+
+
+
+#QN 3
+class Basketballplayer(Player):
+    postitions = ['Guard', 'Forward','Center']
+    player_pos = {}
+    def __init__(self,name,position):
+        super().__init__(name)
+        self.set_position(position)
+    def set_position(self,position):
+        if position in self.__class__.postitions:
+            self.__position = position
+            self.__class__.player_pos[self.get_name()] = position
+        else:
+            return 'invalid position'
+    def get_position(self):
+        return self.__position
+    
+    
+team_name = input('Enter the basketball team name ')
+for i in Basketballplayer.postitions:
+    player_postition = input('which player is playing as a %s'%i)
+    Basketballplayer(player_postition,i)
+for x in Basketballplayer.player_pos:
+    print(x,' is playing as ',Basketballplayer.player_pos[x])
