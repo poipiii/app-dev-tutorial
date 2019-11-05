@@ -95,19 +95,18 @@ def displayinfo(monster,dmg):
         print(monster.get_name(),'suffers',dmg,'damage, the health is now',monster.get_health())
 
 def minushealth_c(player,computer):
-    dmg = computer.get_defence() - player.get_attack()
+    dmg =  player.get_attack() - computer.get_defence()
     health = computer.get_health() - dmg
-    print(health)
     computer.set_health(health)
     displayinfo(computer,dmg)
 
 def minushealth_p(computer,player):
-    dmg = player.get_defence() - computer.get_attack()
+    dmg = computer.get_attack()- player.get_defence() 
     health = player.get_health() - dmg
     player.set_health(health)
     displayinfo(player,dmg)
 
-for i in range(3):
+while True:
     minushealth_c(game.get_p_mon(),game.get_c_mon())
     minushealth_p(game.get_c_mon(),game.get_p_mon())
     if game.get_c_mon().get_health() <= 0:
