@@ -75,7 +75,7 @@ print(new_student)
 
 '''
     
-'''
+
 class Person:
     def __init__(self,name,nric):
         self.__name = name
@@ -158,7 +158,7 @@ new_student.set_test_mark(test_mark)
 new_student.set_exam_mark(exam_mark)
 print(staff)
 print(new_student)
-'''
+
 
 #class Fish:
 #    def __init__(self, first_name, last_name="Fish"):
