@@ -91,7 +91,7 @@ class Monster_game:
 game = Monster_game()
          
 def displayinfo(monster,dmg):
-    if isinstance(monster,Monster):
+    if isinstance(monster,f):
         print(monster.get_name(),'suffers',dmg,'damage, the health is now',monster.get_health())
 
 def minushealth_c(player,computer):
