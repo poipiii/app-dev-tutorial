@@ -2,3 +2,56 @@
 69
 20
 44
+
+
+import shelve
+
+test = shelve.open("student.db",writeback=True)
+test.close()
+
+class Student:
+    def __init__(self,id,name,gpa):
+        self.id = id
+        self.name = name
+        self.gpa = gpa
+    #setters
+    def set_id(self,id):
+        self.id = id
+
+    def set_name(self,name):
+       self.name = name
+
+    def set_gpa(self,gpa):
+        self.gpa = gpa
+    #getters
+    def get_id(self):
+        return self.id
+
+    def get_name(self):
+        return self.name
+
+    def get_gpa(self):
+       return self.gpa
+
+def write_db(student_obj):
+    db = shelve.open("student.db","c")
+    if str(student_obj.id) not in db: 
+        db[str(student_obj.id)] = student_obj
+        db.close()
+    else:
+        print('ERROR: id already exist')
+def read_db():
+    student_list = []    
+    db = shelve.open("student.db","c")
+    for stu_id in db:
+        s = db[stu_id]
+        student_list.append(s)
+    db.close()
+
+    for stu in student_list:
+        print(stu.id(),stu.name(),stu.gpa())
+
+#s1 =  Student('123','rosa','3.5')
+#write_db(s1)
+
+ 
