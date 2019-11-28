@@ -1,4 +1,10 @@
-Andrea,Tan,191123G@nyp.edu.sg
-James,Lim,198765T@nyp.edu.sg
-Mary,Goh,190084H@nyp.edu.sg
-Karen,Wee,195566K@nyp.edu.sg
+John, Lim, 1600,Tutor
+James, Toh, 01,Student
+Max, Tang, IT1901, Student
+Jen, Lee, IT1901, Student
+Jane, Teng, 1700, Tutor
+Jon, Tong, Person 
+Danny, Tan, Person
+Elvin, Ong, IT1901, Student
+Adrian, Chua, 1800, Tutor 
+Jeff, Ting, IT1902, Student

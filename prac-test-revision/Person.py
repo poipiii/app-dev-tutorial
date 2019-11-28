@@ -45,6 +45,7 @@ def load_students():
 # Part (c) Implement assign_students() Function
 def assign_students(instructor, group, class_size):
     for i in class_size:
+        i.group = group
         instructor.add_student(i)
     print("{} student assigned to {}".format(len(instructor.students),instructor.get_name()))
 # Test program
