@@ -16,7 +16,7 @@ class BasketballPlayer(Player):
         if position in self.__class__.positions:
             self.__position = position
         else:
-            return fal
+            return 'invalid position'
     def get_pos(self):
         return self.__position
 
