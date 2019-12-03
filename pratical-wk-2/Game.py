@@ -39,19 +39,67 @@
 #    rand = Quiz()
 #    testlist.append(rand.Generate_num())
 #print(testlist)
-import random
-class question:
-    def __init__(self,question,answer):
-        self.question = question
-        self.answer = answer
-    
-class quiz:
-    questions = []
-    def __init__(self):
-        self.create_question()
-    def create_question(self):
-        q1 = question('can bird fly','N')
-        q2 = question('python is easy','N')
-        q3 = question('a cow can fly','N')
-        q4 = question('a pig can fly','N')
-        q5 = question('a chicken can fly','N')
+
+
+# import random
+# class question:
+#     def __init__(self,qus,ans):
+#         self.ans = ans
+#         self.qus = qus
+#
+# class quiz:
+#     questions = []
+#     def __init__(self):
+#         self.set_qus()
+#         self.points = 0
+#     def set_qus(self):
+#         q1 = question('can bird fly', 'N')
+#         self.__class__.questions.append(q1)
+#         q2 = question('python is easy','N')
+#         self.__class__.questions.append(q2)
+#         q3 = question('a cow can fly','N')
+#         self.__class__.questions.append(q3)
+#         q4 = question('a pig can fly','N')
+#         self.__class__.questions.append(q4)
+#         q5 = question('a chicken can fly','N')
+#         self.__class__.questions.append(q5)
+#     def set_points(self):
+#         self.points += 1
+#     def get_points(self):
+#         return self.points
+#     def get_question(self):
+#         num =random.randint(0,4)
+#         return self.__class__.questions[num]
+#     def check_ans(self,pans):
+#         gameans = self.get_question()
+#         if gameans.ans == pans:
+#             self.set_points()
+#         else:
+#             print('wrong ans the right ans is {}'.format(gameans.ans))
+#
+# p = quiz()
+# while True:
+#     print(p.get_points())
+#     print(p.get_question().qus)
+#     a = input('your ans:')
+#     p.check_ans(a.upper())
+#     y_n = input('continue y/n')
+#     if y_n == 'y':
+#         continue
+#     else:
+#         break
+
+
+
+
+
+# class quiz:
+#     questions = []
+#     def __init__(self):
+#         self.create_question()
+#     def create_question(self):
+#         q1 = question('can bird fly','N')
+#         q2 = question('python is easy','N')
+#         q3 = question('a cow can fly','N')
+#         q4 = question('a pig can fly','N')
+#         q5 = question('a chicken can fly','N')

@@ -1,0 +1,5 @@
+Crunchy,Apple
+Sweet,Orange
+Sour,Lemon
+Smelly,Durian
+Hairy,Rambutan

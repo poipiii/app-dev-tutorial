@@ -42,7 +42,7 @@ def main():
     school_vac ={'SchoolA':5,'SchoolB':5,'SchoolC':5}
     for s in students:
         for c in s.choices:
-            if school_vac.get(c) > 0:
+            if school_vac[c] > 0:
                 s.allocation = c
                 school_vac[c] -= 1
                 break
