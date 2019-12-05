@@ -1,4 +1,4 @@
-012345678901z,Python for Everyone,Python King,100
-112345678901y,Intermediate Python,John Python,200
-212345678901x,Advanced Python,Anaconda
-312345678901v,Beginner Python,Twisted Python,400
+012345678901z;Python for Everyone;Python King;100
+112345678901y;Intermediate Python;John Python;200
+212345678901x;Advanced Python;Anaconda
+312345678901v;Beginner Python;Twisted Python;400

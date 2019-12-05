@@ -89,35 +89,123 @@
 
 
 import  random , shelve
-url = ["www.google.com","www.yahoo.com","www.facebok.com"]
-def covert_to_small(url_list):
-    for i in url_list:
-        shorturllst = []
-        st = i[4:-4]
+
+
+class urls:
+    def __init__(self,long):
+        self.short = ''
+        self.long = long
+        self.convert_small(long)
+
+    def convert_small(self,url):
+        st = url[4:-4]
         letter1 = random.choice(st)
         letter2 = random.choice(st)
         letter3 = random.choice(st)
-        shorturl = 'www.'+letter1+letter2+letter3+'.com'
-        shorturllst.append(shorturl)
-    print(shorturllst)
+        self.short = 'www.'+letter1+letter2+letter3+'.com'
 
-def save(short_url_list,long_url_list):
-    for i in long_url_list:
-        for x in short_url_list:
-            db = shelve.open('url.db','c')
-            db[x] = i
-            db.close
+    def to_shelve(self,obj):
+        db = shelve.open('url.db','c')
+        db[self.short] = obj
+        db.close()
 
-# def save_long():
-#     db = shelve.open('url.db','c') 
+    
+
+
+
+
+
+# url = ["www.google.com","www.yahoo.com","www.facebok.com"]
+
+# url_list = []
+# for i in url:
+#     u = urls(i)
+#     u.to_shelve(u)
+
+def swap(url_to_swap):
+        db = shelve.open('url.db','c')
+        url_obj = db[url_to_swap]
+        if url_to_swap == url_obj.short:
+            db[url_obj.long] = url_obj
+            del(db[url_to_swap])
+        elif url_to_swap == url_obj.long:
+            db[url_obj.short] = url_obj
+            del(db[url_to_swap])
+        else:
+            print('invalid url')
+        db.close()
+
+swap('www.ooh.com')
+
+
+
+
+def display():
+    db = shelve.open('url.db','r') 
+    print(list(db.items()))
+    db.close()
+display()
+
+
+#print(self.long)
+
+# def covert_to_small(url_list):
+#     shorturllst = []
+#     for i in url_list:
+#         st = i[4:-4]
+#         letter1 = random.choice(st)
+#         letter2 = random.choice(st)
+#         letter3 = random.choice(st)
+#         shorturl = 'www.'+letter1+letter2+letter3+'.com'
+#         shorturllst.append(shorturl)
+#     return shorturllst
+
+# def save(short_url_list,long_url_list):
+#     db = shelve.open('url.db','c')
 #     for i in long_url_list:
 #         for x in short_url_list:
-#             db = shelve.open('url.db','c')
-#             db[x] = i
-#             db.close
-short = covert_to_small(url)
+#             if x not in db:
+#                 db[x] = i
+#                 break
+#             else:
+#                 pass
+#     db.close()
+#
+# def swap():
+#     db = shelve.open('url.db','c')
+#     for i in db:
+#         db[db[i]] = i
+#         del(db[i])
+#     db.close()
+#
+# def save_short():
+#     db = shelve.open('url.db','c')
+#     for i in db:
+#         db[db[i]] = i
+#         del(db[i])
+#     db.close()
 
-save(short,url)
+
+# def test_save(short_url_list,long_url_list):
+#     db = {}
+#     for i in long_url_list:
+#         for x in short_url_list:
+#             if x not in db:
+#                 db[x] = i
+#                 break
+#             else:
+#                 pass
+#     print(db)
+
+# def delete():
+#     db = shelve.open('url.db','c')
+#     db.clear()
+#     db.close()
+# delete()
+
+#short = covert_to_small(url)
+#save(short,url)
+
 
 # test = {'a':'b','c':'d'}
 # test2 = {'b': 'a', 'd': 'c'}
@@ -127,4 +215,5 @@ save(short,url)
 # print(test2)
 # for i in test2.keys():
 #     test3[test2[i]] = i
-# print(test3)
+# print
+

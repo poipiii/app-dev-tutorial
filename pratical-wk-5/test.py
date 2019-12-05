@@ -61,17 +61,47 @@ class Student:
          self.english = 0
          self.science = 0
          self.choices = []
+         self.allocation = ''
      def get_score(self):
         return (self.math + self.chinese + self.english + self.science) / 4
-     
+
+def sort_key(student):
+    return student.get_score()
 def main():
- students = load_result()
- for s in students:
- print(s.name, s.get_score())
+    choice = {'SchoolA':5,'SchoolB':5,'SchoolC':5}
+    students = load_result()
+    students = sorted(students,key=sort_key,reverse= True)
+    for s in students:
+        s.choices = ['SchoolA','SchoolB','SchoolC']
+    for s in students:
+        for c in choice:
+            if choice[c] > 0:
+                s.allocation = c
+                choice[c] -= 1
+                break
+            else:
+                pass
+    for s in students:
+        print('{} scores {} and allocated {}, the choices are {}, {}, {}'.format(s.name, s.get_score(),s.allocation,s.choices[0],s.choices[1],s.choices[2]))
 def load_result():
- students = []
+    students = []
  # implement the load result logic here
- return students
+    try:
+        fw = open('results.txt','r')
+        for i in fw:
+            line = i.rstrip('\n').replace(' ','').split(',')
+            s = Student(line[0])
+            s.math = int(line[1])
+            s.chinese = int(line[2])
+            s.english = int(line[3])
+            s.science = int(line[4])
+            students.append(s)
+        fw.close()
+    except IOError:
+        print('file not found')
+    except:
+        print('unknown error')
+    return students
 main()
 
 
